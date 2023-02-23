@@ -135,6 +135,31 @@ const sendEther = async () => {
   }
 };
 
+const signMessage = async() =>{
+  
+  try{
+
+    const message = $('#inputMsg').val();
+
+    // const currentNetwork = getCurrentNetwork();
+    // const network = getNetworkByName(currentNetwork);
+    // const { url } = network;
+    // const provider = new ethers.providers.JsonRpcProvider(url);
+    // const signer = provider.getSigner();
+    // console.log(signer)
+    // console.log(typeof(message))
+    // const signature = await signer.signMessage(message);
+    
+    const wallet = await loadFromPrivateKey();
+    const signature = await wallet.signMessage(message);
+
+    $('#signedMessage').html(signature)
+
+  }catch(err){
+    console.log(err)
+  }
+}
+
 const loadFromPrivateKey = async () => {
   // Write code
   const privateKey = getPrivatekey();

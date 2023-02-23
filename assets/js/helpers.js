@@ -59,8 +59,9 @@ function isNumberKey(evt) {
 
 const networks = [
   {
+    //I am Changing the Localhost URL because my ganache shows this IP in rpc server otherwise the app cannot accesss the local blockchain
     name: 'localhost',
-    url: 'http://localhost:8545',
+    url: 'http://localhost:7545',
     display: 'Local Network',
     default: true,
   },
@@ -79,6 +80,12 @@ const networks = [
     url: 'https://goerli.infura.io/v3/ae22018377b14a61983be979df457b20',
     display: 'Rinkeby',
   },
+  //Support for Polygon Networks
+  {
+    name: 'polygon',
+    url: 'https://polygon-mumbai.infura.io/v3/4458cf4d1689497b9a38b1d6bbf05e78',
+    display: 'Polygon (MATIC)'
+  }
 ];
 
 const getDefaultNetwork = () => {
